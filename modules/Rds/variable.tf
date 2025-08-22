@@ -140,4 +140,89 @@ variable "port" {
 variable "publicly_accessible" {
   description = "Whether the DB has a public IP"
   type        = bool
-  default
+  default     = false
+}
+
+variable "availability_zone" {
+  description = "Prefer a specific AZ (optional)"
+  type        = string
+  default     = null
+}
+
+variable "multi_az" {
+  description = "Enable Multi-AZ"
+  type        = bool
+  default     = false
+}
+
+variable "backup_retention_days" {
+  description = "Number of days to retain backups"
+  type        = number
+  default     = 7
+}
+
+variable "backup_window" {
+  description = "Preferred backup window, e.g., 02:00-03:00"
+  type        = string
+  default     = "02:00-03:00"
+}
+
+variable "maintenance_window" {
+  description = "Preferred maintenance window, e.g., Sun:03:00-Sun:04:00"
+  type        = string
+  default     = "Sun:03:00-Sun:04:00"
+}
+
+variable "deletion_protection" {
+  description = "Protect from deletion"
+  type        = bool
+  default     = true
+}
+
+variable "skip_final_snapshot" {
+  description = "Skip final snapshot on destroy"
+  type        = bool
+  default     = false
+}
+
+variable "performance_insights_enabled" {
+  description = "Enable Performance Insights"
+  type        = bool
+  default     = false
+}
+
+variable "performance_insights_kms_key_id" {
+  description = "KMS key for Performance Insights"
+  type        = string
+  default     = null
+}
+
+variable "monitoring_interval" {
+  description = "Enhanced monitoring interval in seconds (0 to disable)"
+  type        = number
+  default     = 0
+}
+
+variable "monitoring_role_arn" {
+  description = "IAM role ARN for enhanced monitoring (required if interval > 0)"
+  type        = string
+  default     = null
+}
+
+variable "auto_minor_version_upgrade" {
+  description = "Auto-apply minor engine upgrades"
+  type        = bool
+  default     = true
+}
+
+variable "apply_immediately" {
+  description = "Apply changes immediately (may cause downtime)"
+  type        = bool
+  default     = false
+}
+
+variable "tags" {
+  description = "Resource tags"
+  type        = map(string)
+  default     = {}
+}
