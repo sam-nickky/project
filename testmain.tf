@@ -109,11 +109,11 @@ module "s3" {
   name   = "webapp"
 }
 
-module "iam" {
-  source                = "./modules/iam-instance-profile"
-  instance_profile_name = "ec2-profile"
-  log_bucket_name       = module.s3.bucket_name
-}
+#module "iam" {
+#  source                = "./modules/iam-instance-profile"
+#  instance_profile_name = "ec2-profile"
+#  log_bucket_name       = module.s3.bucket_name
+#}
 module "eks" {
   source                 = "./modules/eks"
   cluster_name           = "example-eks-cluster"
